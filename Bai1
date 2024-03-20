@@ -1,0 +1,44 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool laSoChinhPhuong(int n) {
+  if (n < 0) {
+    return false;
+  }
+  double canBacHai = sqrt(n);
+  return floor(canBacHai) == canBacHai; // Kiểm tra xem căn bậc hai có là số nguyên không
+}
+
+int demSoChinhPhuong(int n) {
+  int soLuong = 0;
+  for (int i = 1; i <= n; ++i) {
+    if (laSoChinhPhuong(i)) {
+      soLuong++;
+    }
+  }
+  return soLuong;
+}
+
+
+int main()
+{
+    int n;
+   cout << "Nhap so nguyen duong n: ";
+   cin >> n;
+
+  int soLuongSoChinhPhuong = demSoChinhPhuong(n);
+
+  cout << "Co " << soLuongSoChinhPhuong << " so chinh phuong nho hon " << n << endl;
+
+  cout << "Cac so chinh phuong: ";
+  for (int i = 1; i <= n; ++i) {
+    if (laSoChinhPhuong(i)) {
+      cout << i << " ";
+    }
+  }
+  cout << endl;
+
+  return 0;
+}
